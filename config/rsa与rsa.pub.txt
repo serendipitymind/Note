@@ -1,0 +1,27 @@
+1. rsa与rsa.pub :
+	首先是rsa与rsa.pub是如何产生的，产生的命令如下：
+	ssh-keygen -t rsa -C "yourname@email.com"
+	
+	解释：ssh-keygen是产生密钥，密钥有两种类型rsa和dsa两种，-t用来指定密钥类型，-t rsa是将密钥类型指定为rsa，-C是公钥中的备注，通常指定为自己的邮箱。
+
+	上面的命令执行后会让你输入密钥的名字，通常为id_rsa，如果有多个密钥则需要输入不同的名字。id_rsa和id_rsa.pub。id_rsa为私有密钥，id_rsa.pub为公有密钥。id_rsa.pub公钥是我们用来在Github的profile中的SSH and GPG keys中输入的，id_rsa是我们的私钥，当我们从Github上请求内容时，例如clone时，Github服务器会通过算法计算私有密钥，并将计算结果与公有密钥比对，如果不一致会提示访问失败。
+	测试是否连接成功可以使用如下命令：
+	ssh -T git@github.com
+
+2. t账户时使用的，里面主要配置了访问不同的主机(Host)时采用不同的密钥。文件内容例如：
+
+#公司的git地址
+Host git.***.com  
+   User git
+   Hostname git.***.com  #公司的git地址
+   IdentityFile ~/.ssh/id_rsa  #访问公司git的SSH KEY
+   Port   ***  #公司的git端口
+			
+Host github.com
+   User git
+   Hostname github.com #github的地址
+   IdentityFile ~/.ssh/id_rsa_github  #访问github的SSH KEY
+					 
+3. known_hosts文件
+
+
