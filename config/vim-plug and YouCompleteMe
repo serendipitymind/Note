@@ -1,0 +1,13 @@
+安裝vim-plug:
+curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+
+
+vim ~/.vimrc 
+在~/.vimrc中添加一下內容：
+call plug#begin('~/.vim/plugged')
+Plug 'Valloric/YouCompleteMe'
+call plug#end()
+
+
+
+

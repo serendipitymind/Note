@@ -1,0 +1,11 @@
+
+
+
+
+移除sogou输入法， 由于其安装不完整
+ sudo apt remove sogoupinyin
+
+正确的包安装姿势 :
+sudo apt install libopencc1 fcitx-libs fcitx-libs-qt fonts-droid-fallback libqtwebkit4 fcitx
+sudo dpkg -i sogoupinyin_2.0.0.0078_amd64.deb
+
