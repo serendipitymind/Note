@@ -1,3 +1,4 @@
+known_host 文件在~/.ssh/ 文件夹下
 1. rsa与rsa.pub :
 	首先是rsa与rsa.pub是如何产生的，产生的命令如下：
 	ssh-keygen -t rsa -C "yourname@email.com"
